@@ -1,0 +1,41 @@
+.canal-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates 2 equal-width columns */
+    grid-gap: 10px; /* Reduce the spacing between grid items */
+    margin-bottom: 5px; /* Reduce the bottom margin */
+
+  }
+  
+  .p-button {
+    margin-right: 10px; /* Adds spacing to the right of buttons */
+    margin-bottom: 10px; /* Adds spacing below the buttons */
+  }
+  
+  .btn-normal {
+    margin-left: 10px; /* Space to the left of the normal button */
+  }
+  
+  .canal-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .canal-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  .timer-running {
+    background-color: #FFCCCC; /* Soft Red when timer is running */
+  }
+  
+  .timer-finished {
+    background-color: #90EE90; /* Green when timer is finished */
+  }
+ 
+  

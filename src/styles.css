@@ -1,0 +1,30 @@
+/* Import PrimeNG Theme */
+@import "~primeng/resources/themes/saga-blue/theme.css"; /* You can change saga-blue to another theme */
+
+/* Import PrimeNG Core Styles */
+@import "~primeng/resources/primeng.min.css";
+
+/* Import PrimeIcons for Icons */
+@import "~primeicons/primeicons.css";
+
+/* Your custom styles below */
+.btn-normal .p-button {
+    background-color: white !important;  /* Fundo branco */
+    color: black !important;             /* Texto preto */
+}
+
+.btn-normal .p-button:hover {
+    background-color: #f0f0f0 !important;  /* Fundo cinza claro quando em hover */
+    /* As bordas permanecem com o estilo padrão do PrimeNG */
+}
+/* Usar a fonte Inter, que é a fonte padrão do PrimeNG */
+/* Usar a fonte Inter, que é a fonte padrão do PrimeNG */
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centers horizontally */
+    justify-content: center; /* centers vertically */
+  }
+  
+
