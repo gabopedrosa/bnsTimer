@@ -1,15 +1,17 @@
-<h2>Golden-Deva Boss Timer</h2>
+<h2>Boss Timer</h2>
 <div class="canal-container">
   <div *ngFor="let canal of canais; let i = index" class="canal-item" [ngClass]="{
     'timer-running': canal.timer,
     'timer-finished': !canal.timer && canal.timerDisplay === 0
   }">
-    <label class="canal-label"  aria-label="Age">{{'Channel ' + (i + 1)}}</label>
-    <p-button label="Normal" class="btn-normal" (click)="startTimer(i, 5)"></p-button>
-    <p-button label="Mutated" (click)="startTimer(i, 8)" class="mutated-btn"></p-button>
-    <i *ngIf="canais[i].timerDisplay" class="pi pi-clock"></i>
-    <span *ngIf="canais[i].timerDisplay" class="timer-display">
-      &nbsp;{{formatTime(canais[i].timerDisplay)}}
-    </span>
-  </div>
+  <label class="canal-label" aria-label="Age">{{'Channel ' + (i + 1)}}</label>
+  <p-button label="Normal" class="btn-normal" (click)="startTimer(i, 5)"></p-button>
+  <p-button label="Mutated" (click)="startTimer(i, 8)" class="mutated-btn"></p-button>
+  <i *ngIf="canais[i].timerDisplay" class="pi pi-clock"></i>
+  <span *ngIf="canais[i].timerDisplay" class="timer-display">
+    &nbsp;{{formatTime(canais[i].timerDisplay)}}
+  </span>
+</div>
+<p-button icon="pi pi-info-circle" class="btn-info" label="How to Use" (click)="openGuideDialog()"></p-button>
+
 </div>

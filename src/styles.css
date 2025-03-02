@@ -9,16 +9,24 @@
 
 /* Your custom styles below */
 .btn-normal .p-button {
-    background-color: white !important;  /* Fundo branco */
-    color: black !important;             /* Texto preto */
+    background-color: white !important; 
+    color: black !important;         
 }
 
 .btn-normal .p-button:hover {
-    background-color: #f0f0f0 !important;  /* Fundo cinza claro quando em hover */
-    /* As bordas permanecem com o estilo padrão do PrimeNG */
+    background-color: #f0f0f0 !important;
 }
-/* Usar a fonte Inter, que é a fonte padrão do PrimeNG */
-/* Usar a fonte Inter, que é a fonte padrão do PrimeNG */
+
+.btn-info .p-button {
+    background-color: orange !important; 
+    color: black !important;
+}
+
+.btn-info.p-button:hover {
+    background-color: #f0f0f0 !important;
+
+}
+
 body {
     font-family: 'Inter', sans-serif;
     display: flex;

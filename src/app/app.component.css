@@ -1,18 +1,18 @@
 .canal-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Creates 2 equal-width columns */
-    grid-gap: 10px; /* Reduce the spacing between grid items */
-    margin-bottom: 5px; /* Reduce the bottom margin */
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 5px;
 
   }
   
   .p-button {
-    margin-right: 10px; /* Adds spacing to the right of buttons */
-    margin-bottom: 10px; /* Adds spacing below the buttons */
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
   
   .btn-normal {
-    margin-left: 10px; /* Space to the left of the normal button */
+    margin-left: 10px;
   }
   
   .canal-item {
@@ -31,11 +31,11 @@
   }
   
   .timer-running {
-    background-color: #FFCCCC; /* Soft Red when timer is running */
+    background-color: #FFCCCC;
   }
   
   .timer-finished {
-    background-color: #90EE90; /* Green when timer is finished */
+    background-color: #90EE90;
   }
  
   

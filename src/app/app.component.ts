@@ -1,41 +1,47 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import {  DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { GuideComponent } from './guide.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [DialogService],
 })
 export class AppComponent implements OnInit {
   canais = Array.from({ length: 20 }, (_, i) => ({
     id: i + 1,
     inputValue: '',
     timer: null,
-    timerDisplay: null
+    timerDisplay: null,
   }));
 
   title = 'front';
+  dialogRef: DynamicDialogRef | null = null;
 
-  constructor(private cdRef: ChangeDetectorRef) {}
+  constructor(private cdRef: ChangeDetectorRef, private dynamicDialogService: DialogService) {}
 
-  ngOnInit(): void {
-    // Inicialização, você pode fazer algo aqui se precisar.
+  ngOnInit(): void {}
+
+  openGuideDialog() {
+    this.dialogRef = this.dynamicDialogService.open(GuideComponent, {
+      header: 'How to Use the Application',
+      width: '50%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+    });
   }
 
   startTimer(index: number, minutes: number): void {
-    // Converte minutos para segundos
     const totalTime = minutes * 60;
     let remainingTime = totalTime;
 
-    // Se já existir um temporizador, limpa antes de iniciar um novo
     if (this.canais[index].timer) {
       clearInterval(this.canais[index].timer);
     }
-
-    // Atualiza imediatamente o timerDisplay
     this.canais[index].timerDisplay = remainingTime;
-    this.cdRef.detectChanges();  // Forçar a atualização imediata do DOM
+    this.cdRef.detectChanges();
 
-    // Cria um novo temporizador
     this.canais[index].timer = setInterval(() => {
       if (remainingTime > 0) {
         remainingTime--;
@@ -43,18 +49,17 @@ export class AppComponent implements OnInit {
       } else {
         clearInterval(this.canais[index].timer);
         this.canais[index].timer = null;
+        this.playAlertSound();
       }
     }, 1000);
   }
 
-  // Função para formatar o tempo em MM:SS
   formatTime(seconds: number): string {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${this.pad(minutes)}:${this.pad(remainingSeconds)}`;
   }
 
-  // Função para garantir que o número tenha dois dígitos
   pad(num: number): string {
     return num < 10 ? '0' + num : num.toString();
   }
@@ -62,5 +67,10 @@ export class AppComponent implements OnInit {
   getFormattedInputValue(index: number): string {
     const canal = this.canais[index];
     return canal.inputValue ? canal.inputValue + ' ' + (canal.timerDisplay ? this.formatTime(canal.timerDisplay) : '') : '';
+  }
+
+  playAlertSound(): void {
+    const audio = new Audio('assets/alert.mp3');
+    audio.play();
   }
 }
