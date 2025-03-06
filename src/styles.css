@@ -16,7 +16,14 @@
 .btn-normal .p-button:hover {
     background-color: #f0f0f0 !important;
 }
+.btn-reset .p-button {
+    background-color: blanchedalmond !important; 
+    color: black !important;         
+}
 
+.btn-reset .p-button:hover {
+    background-color: #f0f0f0 !important;
+}
 .btn-info .p-button {
     background-color: orange !important; 
     color: black !important;

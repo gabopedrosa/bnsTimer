@@ -53,7 +53,13 @@ export class AppComponent implements OnInit {
       }
     }, 1000);
   }
-
+  resetTimer(index: number): void {
+    if (this.canais[index].timer) {
+      clearInterval(this.canais[index].timer);
+    }
+    this.canais[index].timer = null; 
+    this.canais[index].timerDisplay = null;
+  }
   formatTime(seconds: number): string {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;

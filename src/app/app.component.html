@@ -4,14 +4,14 @@
     'timer-running': canal.timer,
     'timer-finished': !canal.timer && canal.timerDisplay === 0
   }">
-  <label class="canal-label" aria-label="Age">{{'Channel ' + (i + 1)}}</label>
-  <p-button label="Normal" class="btn-normal" (click)="startTimer(i, 5)"></p-button>
-  <p-button label="Mutated" (click)="startTimer(i, 8)" class="mutated-btn"></p-button>
-  <i *ngIf="canais[i].timerDisplay" class="pi pi-clock"></i>
-  <span *ngIf="canais[i].timerDisplay" class="timer-display">
-    &nbsp;{{formatTime(canais[i].timerDisplay)}}
-  </span>
-</div>
-<p-button icon="pi pi-info-circle" class="btn-info" label="How to Use" (click)="openGuideDialog()"></p-button>
-
+    <label class="canal-label" aria-label="Age">{{'Channel ' + (i + 1)}}</label>
+    <p-button label="Normal" class="btn-normal" (click)="startTimer(i, 5)"></p-button>
+    <p-button label="Mutated" (click)="startTimer(i, 8)" class="mutated-btn"></p-button>
+    <i *ngIf="canais[i].timerDisplay" class="pi pi-clock"></i>
+    <p-button label="Reset" class="btn-reset" (click)="resetTimer(i)"></p-button>
+    <span *ngIf="canais[i].timerDisplay" class="timer-display">
+      &nbsp;{{formatTime(canais[i].timerDisplay)}}
+    </span>
+  </div>
+  <p-button icon="pi pi-info-circle" class="btn-info" label="How to Use" (click)="openGuideDialog()"></p-button>
 </div>
