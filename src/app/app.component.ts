@@ -73,7 +73,10 @@ export class AppComponent implements OnInit {
       .sort((a, b) => a.timerDisplay - b.timerDisplay);
   }
   
-
+  get isAnyTimerRunning() {
+    return this.canais.some(canal => canal.timerDisplay > 0);
+  }
+  
   pad(num: number): string {
     return num < 10 ? '0' + num : num.toString();
   }

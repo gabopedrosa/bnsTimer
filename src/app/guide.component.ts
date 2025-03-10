@@ -14,8 +14,8 @@ import { Component } from '@angular/core';
   
     <p>Once you defeat a Golden Deva boss, select the type of boss you just killed (Normal or Mutated).</p>
     <ul>
-      <li><strong>Normal Boss</strong>: The timer will start counting down from 5 minutes, indicating the time remaining until the next spawn. Once the countdown reaches zero, an alert sound will notify you that the boss is about to respawn.</li>
-      <li><strong>Mutated Boss</strong>: The timer for the Mutated boss will begin a countdown of 8 minutes.</li>
+      <li><strong>Normal Boss</strong>: The timer will start counting down from 5 minutes, indicating the time remaining until the next spawn.</li>
+      <li><strong>Mutated Boss</strong>: The timer for the Mutated boss will begin a countdown of 8 minutes, indicating the time remaining until the next spawn.</li>
     </ul>
   `,
 })

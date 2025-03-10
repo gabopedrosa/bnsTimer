@@ -5,16 +5,37 @@
     margin-bottom: 5px;
 
   }
-  
+  .cards-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+  }
   .p-button {
     margin-right: 10px;
     margin-bottom: 10px;
   }
-  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+  }
+  .copyright {
+    font-size: 14px;
+    color: #555;
+  }
   .btn-normal {
     margin-left: 10px;
   }
-  
+  .spawn-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
   .canal-item {
     display: flex;
     align-items: center;

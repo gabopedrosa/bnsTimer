@@ -44,9 +44,9 @@ body {
   align-items: center; 
   justify-content: center;
   background-image: url('assets/14042.jpg');
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: 80 50%;
+  background-position: 20px 20px 50%;
   height: 100vh;
   margin: 0;
 }
