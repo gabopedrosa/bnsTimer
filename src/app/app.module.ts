@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button'
 import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     BrowserAnimationsModule,
     InputTextModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    CardModule
 
   ],
   providers: [],

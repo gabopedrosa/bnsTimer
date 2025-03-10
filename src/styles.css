@@ -1,5 +1,5 @@
 /* Import PrimeNG Theme */
-@import "~primeng/resources/themes/saga-blue/theme.css"; /* You can change saga-blue to another theme */
+@import "~primeng/resources/themes/saga-blue/theme.css";
 
 /* Import PrimeNG Core Styles */
 @import "~primeng/resources/primeng.min.css";
@@ -25,6 +25,9 @@
     background-color: #f0f0f0 !important;
 }
 .btn-info .p-button {
+    margin-top: 13px;
+    gap: 5px;
+    margin-right: 7px;
     background-color: orange !important; 
     color: black !important;
 }
@@ -38,8 +41,8 @@ body {
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;     /* centers horizontally */
-    justify-content: center; /* centers vertically */
+    align-items: center; 
+    justify-content: center;
   }
   
 

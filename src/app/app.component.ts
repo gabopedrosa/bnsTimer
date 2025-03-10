@@ -9,7 +9,7 @@ import { GuideComponent } from './guide.component';
   providers: [DialogService],
 })
 export class AppComponent implements OnInit {
-  canais = Array.from({ length: 20 }, (_, i) => ({
+  canais = Array.from({ length: 18 }, (_, i) => ({
     id: i + 1,
     inputValue: '',
     timer: null,
@@ -65,6 +65,14 @@ export class AppComponent implements OnInit {
     const remainingSeconds = seconds % 60;
     return `${this.pad(minutes)}:${this.pad(remainingSeconds)}`;
   }
+
+  get sortedChannels() {
+    return this.canais
+      .map((canal, index) => ({ ...canal, index }))
+      .filter(canal => canal.timerDisplay > 0) 
+      .sort((a, b) => a.timerDisplay - b.timerDisplay);
+  }
+  
 
   pad(num: number): string {
     return num < 10 ? '0' + num : num.toString();
