@@ -69,9 +69,11 @@ export class AppComponent implements OnInit {
   get sortedChannels() {
     return this.canais
       .map((canal, index) => ({ ...canal, index }))
-      .filter(canal => canal.timerDisplay > 0) 
-      .sort((a, b) => a.timerDisplay - b.timerDisplay);
+      .filter(canal => canal.timerDisplay > 0)
+      .sort((a, b) => a.timerDisplay - b.timerDisplay)
+      .slice(0, 13);
   }
+  
   
   get isAnyTimerRunning() {
     return this.canais.some(canal => canal.timerDisplay > 0);
