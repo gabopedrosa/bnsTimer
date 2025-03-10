@@ -21,7 +21,9 @@ export class AppComponent implements OnInit {
 
   constructor(private cdRef: ChangeDetectorRef, private dynamicDialogService: DialogService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadTimersFromLocalStorage();
+  }
 
   openGuideDialog() {
     this.dialogRef = this.dynamicDialogService.open(GuideComponent, {
@@ -35,20 +37,23 @@ export class AppComponent implements OnInit {
   startTimer(index: number, minutes: number): void {
     const totalTime = minutes * 60;
     let remainingTime = totalTime;
-
+  
     if (this.canais[index].timer) {
       clearInterval(this.canais[index].timer);
     }
+  
     this.canais[index].timerDisplay = remainingTime;
-    this.cdRef.detectChanges();
-
+    this.updateLocalStorage();
+  
     this.canais[index].timer = setInterval(() => {
       if (remainingTime > 0) {
         remainingTime--;
         this.canais[index].timerDisplay = remainingTime;
+        this.updateLocalStorage();
       } else {
         clearInterval(this.canais[index].timer);
         this.canais[index].timer = null;
+        this.updateLocalStorage();
         this.playAlertSound();
       }
     }, 1000);
@@ -57,9 +62,43 @@ export class AppComponent implements OnInit {
     if (this.canais[index].timer) {
       clearInterval(this.canais[index].timer);
     }
-    this.canais[index].timer = null; 
+    this.canais[index].timer = null;
     this.canais[index].timerDisplay = null;
+    this.updateLocalStorage();
   }
+  updateLocalStorage(): void {
+    const timersData = this.canais.map(canal => ({
+      timerDisplay: canal.timerDisplay,
+    }));
+    localStorage.setItem('timers', JSON.stringify(timersData));
+  }
+  loadTimersFromLocalStorage(): void {
+    const savedTimers = localStorage.getItem('timers');
+    if (savedTimers) {
+      const timersData = JSON.parse(savedTimers);
+      timersData.forEach((data: { timerDisplay: number }, index: number) => {
+        if (data.timerDisplay > 0) {
+          this.resumeTimer(index, data.timerDisplay);
+        }
+      });
+    }
+  }
+  resumeTimer(index: number, remainingTime: number): void {
+    this.canais[index].timerDisplay = remainingTime;
+  
+    this.canais[index].timer = setInterval(() => {
+      if (remainingTime > 0) {
+        remainingTime--;
+        this.canais[index].timerDisplay = remainingTime;
+        this.updateLocalStorage();
+      } else {
+        clearInterval(this.canais[index].timer);
+        this.canais[index].timer = null;
+        this.updateLocalStorage();
+        this.playAlertSound();
+      }
+    }, 1000);
+  }  
   formatTime(seconds: number): string {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
